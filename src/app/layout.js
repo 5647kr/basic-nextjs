@@ -1,6 +1,7 @@
 // "use client"
 import Link from "next/link";
 import "./globals.css";
+import Control from "./Control";
 // import { useEffect, useState } from "react";
 
 export default async function RootLayout({ children }) {
@@ -13,7 +14,7 @@ export default async function RootLayout({ children }) {
   //   });
   // }, [])
 
-  const response = await fetch("http://localhost:9999/topics");
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "topics", {cache: "no-store"});
   const topics = await response.json();
   
   return (
@@ -39,7 +40,8 @@ export default async function RootLayout({ children }) {
           </li> */}
         </ol>
         {children}
-        <ul>
+        <Control />
+        {/* <ul>
           <li>
             <Link href="/create">Create</Link>
           </li>
@@ -50,7 +52,7 @@ export default async function RootLayout({ children }) {
           <li>
             <input type="button" value="delete" />
           </li>
-        </ul>
+        </ul> */}
       </body>
     </html>
   );
