@@ -3,6 +3,7 @@ import "../globals.css";
 import {age, name, hello} from "./data.js"
 
 export default function Cart() {
+  let cartList = ["토마토", "파스타"]
   return (
     <div>
       <h1>{hello}</h1>
@@ -14,26 +15,35 @@ export default function Cart() {
           <p>1</p>
         </li>
          */}
-        <li className="cart-item">
+        {/* <li className="cart-item">
           <p>상품명 {age} {name}</p>
           <p>$40</p>
           <p>1</p>
-        </li>
-        <CartItem />
-        <CartItem />
+        </li> */}
+        <CartItem item={cartList[0]} />
+        <CartItem item={cartList[1]} />
+        <BtnItem color= "red" />
+        <BtnItem color= "blue" />
+
       </ul>
     </div>
   );
 }
 
-function CartItem() {
+function CartItem(props) {
   return (
     <li className="cart-item">
-      <p>상품명</p>
+      <p>{props.item}</p>
       <p>$40</p>
       <p>1</p>
-    </li>
+    </li> 
   );
+}
+
+function BtnItem(props) {
+  return (
+    <button style={{background: props.color}}>버튼임</button>
+  )
 }
 
 // component 만드는 법
@@ -68,3 +78,6 @@ function CartItem() {
 
 
 
+// props 문법
+// 1. <자식 Component 작명="전달데이터" />
+// 2. 자식은 props.작명 사용
