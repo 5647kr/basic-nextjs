@@ -4,6 +4,7 @@ import { connectDB } from "@/util/db";
 
 export default async function handler(req, res) {
   const result = req.body;
+  console.log(result)
   if(req.method === "POST") {
     const db = (await connectDB).db("forum");
     await db.collection("post").insertOne({ 
@@ -13,6 +14,19 @@ export default async function handler(req, res) {
       // _id를 MongoDB에서 자동으로 생성하게 하고 싶으면 이렇게 _id는 비워두면 된다.
     })
   }
+
+
+  // if(req.method === "PATCH") {
+  //   const db = (await connectDB).db("forum")
+  //   await db.collection("post").updateOne({
+  //     _id: new ObjectId(result._id)
+  //   }, 
+  //     {$set: {
+  //       title: result.title,
+  //       content: result.content
+  //     }
+  //   })
+  // }
   return res.status(200).json(result);
 }
 
@@ -39,7 +53,7 @@ export default async function handler(req, res) {
 // 2. post: 새로운 데이터 추가시
 // 3. put: 데이터 수정시
 // 4. delete: 데이터 삭제시
-// 5. patch: 데티어 수정시
+// 5. patch: 데이터 수정시
 
 // next.js에서 서버 기능 개발할 경우 2가지 방법이 있다.
 // 1. app폴더안에 api 폴더에서 개발 -> 미완이라 이거보단 root 폴더에 pages/api 폴더에서 개발하는것이 좋다.
