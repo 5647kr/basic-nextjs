@@ -1,16 +1,16 @@
 export default function Write() {
   return (
-    <div>
+    <div className="p-20">
       <h4>글 작성</h4>
       <form action="/api/test" method="POST">
         <label htmlFor="">글 제목</label>
-        <input type="text" name="title"/>
+        <input type="text" name="title" />
         <label htmlFor="">글 내용</label>
         <input type="text" name="content" />
         <button type="submit">버튼</button>
       </form>
     </div>
-  )
+  );
 }
 
 // 서버로 post method요청하려면 form 태그 사용
