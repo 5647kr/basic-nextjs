@@ -1,4 +1,6 @@
+import Link from "next/link";
 import "./globals.css"
+
 
 export const metadata = {
   title: "Create Next App",
@@ -9,6 +11,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <nav className="navbar">
+          <Link href="/" className="logo">AppleForum</Link>
+          <Link href="/list">List</Link>
+        </nav>
         {children}
       </body>
     </html>
