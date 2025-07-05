@@ -4,6 +4,7 @@ import { connectDB } from "@/util/db";
 
 export default async function handler(req, res) {
   const result = req.body;
+  console.log(req.query)
   console.log(result)
   if(req.method === "POST") {
     const db = (await connectDB).db("forum");
