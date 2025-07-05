@@ -1,13 +1,11 @@
 import { connectDB } from "@/util/db";
 import { ObjectId } from "mongodb";
 
-export default async function detail({ params }) {
+export default async function Detail({ params }) {
   const db = (await connectDB).db("forum");
-  const resolveParams = await params;
-  const result = await db.collection("post").findOne({ _id: new ObjectId(resolveParams.id) });
+  const { id } = await params;
+  const result = await db.collection("post").findOne({ _id: new ObjectId(id) });
 
-
-  console.log(result);
 
   return (
     <div>
