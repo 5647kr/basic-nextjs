@@ -2,7 +2,7 @@ export default function Write() {
   return (
     <div className="p-20">
       <h4>글 작성</h4>
-      <form action="/api/test" method="POST">
+      <form action="/api/post/post" method="POST">
         <label htmlFor="">글 제목</label>
         <input type="text" name="title" />
         <label htmlFor="">글 내용</label>
