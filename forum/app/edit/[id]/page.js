@@ -19,7 +19,7 @@ export default async function Edit({params}) {
   return (
     <div className="p-20">
       <h4>수정 페이지</h4>
-      <form action="/api/edit/edit" method="POST">
+      <form action="/api/post/edit" method="POST">
         <label htmlFor="">글 제목</label>
         <input type="text" name="title" defaultValue={result.title}/>
         <label htmlFor="">글 내용</label>
